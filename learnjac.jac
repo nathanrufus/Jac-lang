@@ -1,9 +1,10 @@
 def sayHello() -> str {
-    return ("Jac is a good progaramming language");
+    print ("Jac is a good progaramming language");
 }
 
 with entry{
-    print(f" {sayHello()}");
+    # print(f" {sayHello()}");
+    sayHello();
 }
 
 with entry{
