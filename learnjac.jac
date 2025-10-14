@@ -17,8 +17,7 @@ with entry{
     name: str = "Nathan";
     age: int = 20;
     height: float = 5.9;
-    is_student: bool = true;
-    print(f"My name is {name}, I am {age} years old, my height is {height} feet, and it is {is_student} that I am a student.");
+    print(f"My name is {name}, I am {age} years old, my height is {height} feet");
 }
 
 # calculate area of a rectangle
@@ -32,3 +31,19 @@ with entry{
     area:float = areOfRectangle(length, width);
     print(f"The area of the rectangle is {area}");
 }
+
+def greet(name: str = "friend", excited: bool = False) {
+    if excited {
+        print(f"HELLO, {name}!!!");
+    } else {
+        print(f"Hello, {name}.");
+    }
+}
+
+with entry {
+    greet();                          # Uses defaults
+    greet("Alice");                   # Uses name, default excited
+    greet("Bob", True);               # Both specified
+    greet(excited=True, name="Eve");  # Named parameters
+}
+
