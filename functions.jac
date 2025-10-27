@@ -29,3 +29,37 @@ with entry{
     }
     print(f"The oldest person is {oldest} with age {max_age}");
 }
+
+with entry{
+    # enum-like pattern using a dict (portable if language lacks native enum)
+    Colors:dict[str, int] = { "RED": 0, "GREEN": 1, "BLUE": 2 };
+
+    def color_name(val:int) -> str {
+        for (k, v) in Colors.items() {
+            if v == val {
+                return k;
+            }
+        }
+        return "UNKNOWN";
+    }
+
+    def paint(color:int) {
+        if color == Colors["RED"] {
+            print("Painting red");
+        } elif color == Colors["GREEN"] {
+            print("Painting green");
+        } else {
+            print("Painting blue/other");
+        }
+    }
+
+    # usage
+    current:int = Colors["GREEN"];
+    print(f"Current color numeric value: {current}");
+    if current == Colors["GREEN"] {
+        print("It's green!");
+    }
+    print(f"Name from value: {color_name(current)}");
+
+    paint(current);
+}
